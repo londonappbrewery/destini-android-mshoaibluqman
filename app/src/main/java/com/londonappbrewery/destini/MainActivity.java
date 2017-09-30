@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     // TODO: Steps 4 & 8 - Declare member variables here:
 
     TextView storyTextView;
-    Button buttonTop , buttonBottom;
+    Button buttonTop, buttonBottom;
     int storyIndex;
     String userSelection;
     String trackStory;
@@ -29,13 +29,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
-
-        // TODO: Step 5 - Wire up the 3 views from the layout to the member variables:
-
         storyTextView = (TextView) findViewById(R.id.storyTextView);
         buttonTop = (Button) findViewById(R.id.buttonTop);
         buttonBottom = (Button) findViewById(R.id.buttonBottom);
+
 
         storyTextView.setText(storyDatas[storyIndex].getStory());
         buttonTop.setText(storyDatas[storyIndex].getAns_1());
@@ -53,8 +50,6 @@ public class MainActivity extends AppCompatActivity {
                 trackStory = storyTextView.getText().toString();
 
 
-
-
             }
         });
 
@@ -63,13 +58,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(storyIndex == 1){
+                if (storyIndex == 1) {
 
                     storyTextView.setText(R.string.T4_End);
                     buttonTop.setVisibility(View.GONE);
                     buttonBottom.setVisibility(View.GONE);
 
-                }else {
+                } else {
 
 
                     userSelection = buttonBottom.getText().toString();
@@ -81,39 +76,24 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-        // TODO: Steps 6, 7, & 9 - Set a listener on the top button:
-
-
-
-
-        // TODO: Steps 6, 7, & 9 - Set a listener on the bottom button:
-
-
     }
-
-
-
 
 
     private void topButtonChangeStory() {
 
-//        Toast.makeText(this, R.string.T2_Story, Toast.LENGTH_LONG).show();
 
-if(storyIndex == 1) {
-    storyIndex = storyIndex + 1;
-}else
-{
-    storyIndex = storyIndex + 1;
-}
+        if (storyIndex == 1) {
+            storyIndex = storyIndex + 1;
+        } else {
+            storyIndex = storyIndex + 1;
+        }
 
-        if(storyIndex < storyDatas.length) {
+        if (storyIndex < storyDatas.length) {
 
             storyTextView.setText(storyDatas[storyIndex].getStory());
             buttonTop.setText(storyDatas[storyIndex].getAns_1());
             buttonBottom.setText(storyDatas[storyIndex].getAns_2());
-        }
-        else{
+        } else {
 
 
             checkForStoryEnd();
@@ -121,41 +101,36 @@ if(storyIndex == 1) {
         }
 
 
-
     }
-
 
 
     private void bottomButtonChangeStory() {
 
 
+        storyIndex = storyIndex + 1;
 
-            storyIndex = storyIndex + 1;
+        Toast.makeText(this, "Clicked" + storyIndex, Toast.LENGTH_LONG).show();
 
-            Toast.makeText(this, "Clicked" + storyIndex, Toast.LENGTH_LONG).show();
-
-            if (storyIndex < storyDatas.length) {
+        if (storyIndex < storyDatas.length) {
 
 
-                storyTextView.setText(storyDatas[storyIndex].getStory());
-                buttonTop.setText(storyDatas[storyIndex].getAns_1());
-                buttonBottom.setText(storyDatas[storyIndex].getAns_2());
-            } else {
+            storyTextView.setText(storyDatas[storyIndex].getStory());
+            buttonTop.setText(storyDatas[storyIndex].getAns_1());
+            buttonBottom.setText(storyDatas[storyIndex].getAns_2());
+        } else {
 
-                checkForStoryEnd();
-            }
-
+            checkForStoryEnd();
         }
+
+    }
 
 
     private void checkForStoryEnd() {
 
 
-        if(userSelection == buttonTop.getText().toString()) {
+        if (userSelection == buttonTop.getText().toString()) {
             storyTextView.setText(R.string.T6_End);
-        }
-
-        else if(userSelection == buttonBottom.getText().toString()){
+        } else if (userSelection == buttonBottom.getText().toString()) {
             storyTextView.setText(R.string.T5_End);
         }
 
