@@ -7,8 +7,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static android.R.attr.button;
-
 public class MainActivity extends AppCompatActivity {
 
     // TODO: Steps 4 & 8 - Declare member variables here:
@@ -118,29 +116,11 @@ if(storyIndex == 1) {
         else{
 
 
-            topButtonCheckForStoryEnd();
+            checkForStoryEnd();
 
         }
 
 
-
-    }
-
-
-
-    private void topButtonCheckForStoryEnd() {
-
-
-        if(userSelection == buttonTop.getText().toString()) {
-            storyTextView.setText(R.string.T6_End);
-        }
-
-        else if(userSelection == buttonBottom.getText().toString()){
-            storyTextView.setText(R.string.T5_End);
-        }
-
-            buttonTop.setVisibility(View.GONE);
-            buttonBottom.setVisibility(View.GONE);
 
     }
 
@@ -162,9 +142,27 @@ if(storyIndex == 1) {
                 buttonBottom.setText(storyDatas[storyIndex].getAns_2());
             } else {
 
-                topButtonCheckForStoryEnd();
+                checkForStoryEnd();
             }
 
         }
+
+
+    private void checkForStoryEnd() {
+
+
+        if(userSelection == buttonTop.getText().toString()) {
+            storyTextView.setText(R.string.T6_End);
+        }
+
+        else if(userSelection == buttonBottom.getText().toString()){
+            storyTextView.setText(R.string.T5_End);
+        }
+
+        buttonTop.setVisibility(View.GONE);
+        buttonBottom.setVisibility(View.GONE);
+
+    }
+
 
 }
