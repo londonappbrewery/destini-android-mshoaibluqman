@@ -65,9 +65,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                userSelection = buttonBottom.getText().toString();
+                if(storyIndex == 1){
 
-                bottomButtonChangeStory();
+                    storyTextView.setText(R.string.T4_End);
+                    buttonTop.setVisibility(View.GONE);
+                    buttonBottom.setVisibility(View.GONE);
+
+                }else {
+
+
+                    userSelection = buttonBottom.getText().toString();
+
+                    bottomButtonChangeStory();
+                }
 
             }
         });
@@ -92,8 +102,12 @@ public class MainActivity extends AppCompatActivity {
 
 //        Toast.makeText(this, R.string.T2_Story, Toast.LENGTH_LONG).show();
 
-
-        storyIndex = storyIndex + 2;
+if(storyIndex == 1) {
+    storyIndex = storyIndex + 1;
+}else
+{
+    storyIndex = storyIndex + 1;
+}
 
         if(storyIndex < storyDatas.length) {
 
@@ -134,13 +148,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void bottomButtonChangeStory() {
 
-        if (storyIndex == 1) {
 
-            storyTextView.setText(R.string.T4_End);
-            buttonTop.setVisibility(View.GONE);
-            buttonBottom.setVisibility(View.GONE);
-
-        } else {
 
             storyIndex = storyIndex + 1;
 
@@ -158,6 +166,5 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
-    }
 
 }
