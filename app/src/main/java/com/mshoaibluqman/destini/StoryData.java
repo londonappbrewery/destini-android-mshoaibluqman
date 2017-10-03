@@ -1,4 +1,4 @@
-package com.londonappbrewery.destini;
+package com.mshoaibluqman.destini;
 
 /**
  * Created by muhammadirfan on 30/09/2017.

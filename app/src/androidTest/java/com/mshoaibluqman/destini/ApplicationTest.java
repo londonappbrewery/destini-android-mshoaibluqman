@@ -1,4 +1,4 @@
-package com.londonappbrewery.destini;
+package com.mshoaibluqman.destini;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
